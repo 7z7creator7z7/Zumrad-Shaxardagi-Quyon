@@ -1,1 +1,55 @@
+let rabbitX = 50;
+let rabbitY = 50;
+let isHappy = true;
 
+// Quyonni siljitish funksiyasi
+function moveRabbit(x, y) {
+    const rabbit = document.getElementById('rabbit-image');
+    rabbit.style.left = x + 'px';
+    rabbit.style.top = y + 'px';
+}
+
+// Agar quyon hafa bo'lsa, u ekrandan chiqib ketadi
+function runAway() {
+    isHappy = false;
+    moveRabbit(-500, -500); // Ekrandan tashqariga qochish
+    alert("Quyoncha hafa bo'ldi va qochib ketdi!");
+}
+
+// Foydalanuvchi sabzi taklif qilsa
+function offerCarrot() {
+    if (!isHappy) {
+        isHappy = true;
+        moveRabbit(window.innerWidth / 2, window.innerHeight / 2); // Qaytish
+        console.log("Quyoncha sabzini ko'rib qaytdi!");
+    }
+}
+/* Quyoncha tanasi */
+.rabbit {
+    width: 100px;
+    height: 120px;
+    background-color: #f0f0f0;
+    border-radius: 50% 50% 40% 40%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transition: all 0.3s ease;
+}
+
+/* Quloqlari */
+.rabbit::before, .rabbit::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 70px;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    top: -50px;
+}
+.rabbit::before { left: 10px; transform: rotate(-20deg); }
+.rabbit::after { right: 10px; transform: rotate(20deg); }
+
+/* Ko'zlari */
+.rabbit::after {
+    /* Bu yerda ko'zlar uchun yana ikkita kichik div qo'shish kerak */
+}
