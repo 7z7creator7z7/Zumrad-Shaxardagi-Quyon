@@ -49,4 +49,5 @@ setInterval(() => {
 }, 16000);
 
 const PORT = process.env.PORT || 3000;
+app.get("/", (req, res) => res.send("Server is running!"));
 http.listen(PORT, () => console.log(`Server ${PORT}-portda ishlamoqda`));
